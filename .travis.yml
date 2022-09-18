@@ -18,15 +18,15 @@ script:
   - docker build -t udagram-frontend ./udagram-frontend
   - docker build -t udagram-reverseproxy ./udagram-reverseproxy
 
-  - docker tag udagram-api-feed epowei/udagram-api-feed:v1
-  - docker tag udagram-api-user epowei/udagram-api-user:v1
-  - docker tag udagram-frontend epowei/udagram-frontend:v1
-  - docker tag udagram-reverseproxy epowei/udagram-reverseproxy:v1
+  - docker tag udagram-api-feed epowei/udagram-api-feed
+  - docker tag udagram-api-user epowei/udagram-api-user
+  - docker tag udagram-frontend epowei/udagram-frontend
+  - docker tag udagram-reverseproxy epowei/udagram-reverseproxy
 
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push epowei/udagram-api-feed:v1
-  - docker push epowei/udagram-api-user:v1
-  - docker push epowei/udagram-frontend:v1
-  - docker push epowei/udagram-reverseproxy:v1
+  - docker push epowei/udagram-api-feed
+  - docker push epowei/udagram-api-user
+  - docker push epowei/udagram-frontend
+  - docker push epowei/udagram-reverseproxy
