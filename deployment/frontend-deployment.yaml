@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: docker.io/epowei/udagram-frontend:v5
+          image: docker.io/epowei/udagram-frontend:v7
           imagePullPolicy: Always
           ports:
             - containerPort: 80
@@ -25,3 +25,8 @@ spec:
               cpu: 500m
             requests:
               cpu: 200m
+          envFrom:
+            - secretRef:
+                name: env-secret
+            - configMapRef:
+                name: env-configmap
